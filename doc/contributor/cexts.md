@@ -17,7 +17,7 @@ compatibility we've set, isn't available easily on macOS). You can set
 version.
 
 You can now build the C extension support. Building the OpenSSL C extension is
-incomplete, so most people probably want to disable that.
+incomplete, so most people probably want to disable that:
 
 ```
 $ jt build cexts --no-openssl
@@ -27,7 +27,7 @@ Get the `jruby-truffle-gem-test-pack` repository.
 
 https://github.com/jruby/jruby-truffle-gem-test-pack
 
-You can then test C extension support.
+You can then test C extension support:
 
 ```
 $ export GEM_HOME=../jruby-truffle-gem-test-pack/gems
@@ -37,6 +37,18 @@ $ jt test cexts --no-libxml --no-openssl
 If you want to test `libxml`, remove that flag and set either `LIBXML_HOME` or
 `LIBXML_INCLUDE` and `LIBXML_LIB`. Try the same with `OPENSSL_` if you are
 adventurous.
+
+You can also run C extension specs:
+
+```
+$ jt test --sulong :capi
+```
+
+And in general run an application that needs C extensions:
+
+```
+$ jt run --sulong ...
+```
 
 To run C extension bechmarks, you first need to compile them.
 
